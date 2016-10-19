@@ -15,8 +15,10 @@
 
 //位置管理者
 @property (nonatomic, strong) CLLocationManager *localManager;
+
 //地图
 @property (nonatomic, strong) MKMapView *mapView;
+
 //存放用户位置的数组
 @property (nonatomic, strong) NSMutableArray *locationMutableArray;
 
@@ -26,7 +28,7 @@
 // 移动距离
 @property (nonatomic, assign) double meter;
 
-// 过滤器
+// 采点过滤器
 @property (nonatomic, assign) double meterFilter;
 
 @property (nonatomic, strong) NSMutableArray * points;
@@ -272,10 +274,7 @@
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
     
-    
-    
-    
-    switch (status) {
+        switch (status) {
         case kCLAuthorizationStatusNotDetermined:{
             NSLog(@"用户还未进行授权");
             break;
@@ -354,6 +353,7 @@
 
 
 #pragma mark - 显示详细状态
+
 - (void)showStatusWith:(CLLocation *)location
 {
     NSMutableString *info = [[NSMutableString alloc] init];
